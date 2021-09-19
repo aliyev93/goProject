@@ -1,0 +1,10 @@
+image:
+  repo: gcr.io/goproject-326511
+  name: goproject
+  tag: latest
+
+service:
+  port: 80
+  targetPort: 8080
+
+

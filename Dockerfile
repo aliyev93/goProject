@@ -9,4 +9,6 @@ FROM alpine:latest
 WORKDIR /app
 COPY --from=builder /build/app .
 COPY config.yaml .
+RUN adduser gouser --disabled-password
+USER gouser
 CMD ["./app"]
