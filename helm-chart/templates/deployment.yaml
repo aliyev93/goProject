@@ -17,9 +17,19 @@ spec:
       containers:
       - name: "{{ .Release.Name }}"
         image: "{{ .Values.image.repo}}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: Always
         ports:
         - containerPort: {{ .Values.service.targetPort }}          
         livenessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.service.targetPort }}
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 1
+          successThreshold: 1
+        readinessProbe:
           httpGet:
             path: /health
             port: {{ .Values.service.targetPort }}

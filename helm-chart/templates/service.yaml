@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: "{{ .Release.Name }}"
+  type: NodePort
   ports:
     - protocol: TCP
       port: {{ .Values.service.port }}
