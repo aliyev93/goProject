@@ -1,6 +1,6 @@
 database:
-  host: "172.17.0.1"
+  host: "10.10.112.2"
   port: "3306"
-  user: "gouser"
+  user: "gotest"
   password: "Asdf1234"
-  dbname: "testdb"
+  dbname: "gotestdb"
